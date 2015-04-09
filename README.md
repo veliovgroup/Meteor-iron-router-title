@@ -34,7 +34,7 @@ Router.map ->
     path: '/me/account'
     title: () ->
       this.data().getTitle()
-    data: 
+    data: ->
       getTitle: ->
         Collection.Posts.findOne('someId').title
 ```

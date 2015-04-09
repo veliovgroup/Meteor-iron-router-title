@@ -24,6 +24,22 @@ Router.map ->
     title: 'My Account'
 ```
 
+
+Use function context:
+
+```coffeescript
+Router.map ->
+  Router.route 'account',
+    template: 'account'
+    path: '/me/account'
+    title: () ->
+      this.data().getTitle()
+    data: 
+      getTitle: ->
+        Collection.Posts.findOne('someId').title
+```
+
+
 To change `title` reactively, just pass it as function:
 
 ```coffeescript

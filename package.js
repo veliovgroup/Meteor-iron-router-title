@@ -1,6 +1,6 @@
 Package.describe({
   name: 'ostrio:iron-router-title',
-  version: '0.1.1',
+  version: '0.2.0',
   summary: 'Change document.title (page title) on the fly within iron-router',
   git: 'https://github.com/VeliovGroup/Meteor-iron-router-title',
   documentation: 'README.md'

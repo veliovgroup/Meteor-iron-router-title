@@ -24,7 +24,7 @@ minifiers@1.1.5
 minimongo@1.0.8
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-ostrio:iron-router-title@0.1.1
+ostrio:iron-router-title@0.2.0
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5

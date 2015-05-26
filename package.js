@@ -8,6 +8,6 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
-  api.use(['underscore', 'iron:router@1.0.7'], 'client')
+  api.use(['underscore', 'iron:router@1.0.7'], 'client');
   api.addFiles('ostrio:iron-router-title.js', 'client');
 });

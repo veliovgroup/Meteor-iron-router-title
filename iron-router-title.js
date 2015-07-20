@@ -9,7 +9,7 @@ Router.onAfterAction(function(){
     if(!_.isUndefined(title)){
       if(_.isString(title)){
         document.title = title;
-      }else if(_.isFunction(title)){
+      }else if(_.isFunction(title) && _.isString(title.apply(currentRoute))){
         document.title = title.apply(currentRoute);
       }
     }
@@ -21,7 +21,7 @@ Router.onAfterAction(function(){
       if(_.isString(title)){
         document.title = title;
       }else if(_.isFunction(title)){
-        if(!_.isUndefined(title.apply(currentRoute))){
+        if(_.isString(title.apply(currentRoute))){
           document.title = title.apply(currentRoute);
         }else{
           setDefaultTitle()

@@ -1,6 +1,10 @@
 Changelog
 ======
 
+ - [[0.2.2](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v0.2.2)] *20/07/2015*
+   - If current route's `title` doesn't returns string, - use `title` form `Router.configure`
+   - Check whether the title function returns a string
+   - Thanks to [@sunstorymvp](https://github.com/sunstorymvp) for contribution
  - [[0.2.1](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v0.2.1)] *06/07/2015*
    - Remove colon from file names, to avoid Windows compilation issues
  - [[0.2.0](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v0.2.0)] *05/26/2015*

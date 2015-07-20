@@ -2,21 +2,37 @@
 /*global Router:false */
 /*global _:false */
 Router.onAfterAction(function(){
+  var currentRoute = this;
+
+  var setDefaultTitle = function(){
+    var title = Router.options.title;
+    if(!_.isUndefined(title)){
+      if(_.isString(title)){
+        document.title = title;
+      }else if(_.isFunction(title)){
+        document.title = title.apply(currentRoute);
+      }
+    }
+  }
+
+  var setRouteTitle = function(){
+    var title = currentRoute.route.options.title;
+    if(!_.isUndefined(title)){
+      if(_.isString(title)){
+        document.title = title;
+      }else if(_.isFunction(title)){
+        if(!_.isUndefined(title.apply(currentRoute))){
+          document.title = title.apply(currentRoute);
+        }else{
+          setDefaultTitle()
+        }
+      }
+    }
+  }
+
   if(_.has(this.route.options, "title")){
-    if(!_.isUndefined(this.route.options.title)){
-      if(_.isString(this.route.options.title)){
-        document.title = this.route.options.title;
-      }else if(_.isFunction(this.route.options.title)){
-        document.title = this.route.options.title.apply(this);
-      }
-    }
+    setRouteTitle()
   }else if(_.has(Router.options, "title")){
-    if(!_.isUndefined(Router.options.title)){
-      if(_.isString(Router.options.title)){
-        document.title = Router.options.title;
-      }else if(_.isFunction(Router.options.title)){
-        document.title = Router.options.title.apply(this);
-      }
-    }
+    setDefaultTitle()
   }
 });

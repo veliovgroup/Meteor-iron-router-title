@@ -10,8 +10,7 @@ meteor add ostrio:iron-router-title
 
 Usage:
 ========
-Simple set `title` property in router configuration:
-
+Set `title` property in router's or controller's configuration:
 ```coffeescript
 # Set default document.title value in 
 # case router has no title property
@@ -22,25 +21,24 @@ Router.route 'account',
   template: 'account'
   path: '/me/account'
   title: 'My Account'
+
+LocationController = RouteController.extend(title: "Lacation Title")
+Router.route 'locations', controller: LocationController
 ```
 
-
 Use function context:
-
 ```coffeescript
 Router.route 'account',
   template: 'account'
-  path: '/me/account'
-  title: () ->
-    this.data().getTitle()
+  path: '/me/account/:_id'
+  title: ->
+    "Account of #{@data().getFullName()}"
   data: ->
-    getTitle: ->
-      Collection.Posts.findOne('someId').title
+    getFullName: =>
+      Meteor.users.findOne(@params._id).fullName
 ```
 
-
 To change `title` reactively, just pass it as function:
-
 ```coffeescript
 Router.route 'account',
   template: 'account'

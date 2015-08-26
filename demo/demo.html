@@ -1,0 +1,40 @@
+<head>
+  <title>Hard-coded title</title>
+</head>
+
+<template name="_layout">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>ostrio:iron-router-title demo</h3>
+        <ul>
+          <li><a href="https://github.com/VeliovGroup/Meteor-iron-router-title">On GitHub</a></li>
+          <li><a href="https://atmospherejs.com/ostrio/iron-router-title">On Atmosphere</a></li>
+        </ul>
+
+        <div class="alert alert-info">
+          {{> yield}}
+        </div>
+
+        <h5>Pages:</h5>
+        <ul>
+          <li><a href="{{pathFor 'index'}}">Index</a></li>
+          <li><a href="{{pathFor 'secondPage'}}">Second Page, title set via Controller</a></li>
+          <li><a href="{{pathFor 'thirdPage' something=rand}}">Third Page with parameter "<b>{{rand}}</b>"</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="index">
+  <p><b>Index Page</b>, title should be: "Default Title"</p>
+</template>
+
+<template name="secondPage">
+  <p><b>Second Page</b>, title should be: "Second Page Title"</p>
+</template>
+
+<template name="thirdPage">
+  <p><b>Third Page</b>, title should be: "Third Page Title > <b>{{param}}</b>"</p>
+</template>

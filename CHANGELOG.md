@@ -1,7 +1,7 @@
 Changelog
 ======
 
- - [[1.0.0](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v1.0.0)] *26/07/2015*
+ - [[1.0.0](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v1.0.0)] *26/08/2015*
    - Add support for `RouteController`
    - Better rewritten code in CoffeeScript as a Class
    - Add "demo" app

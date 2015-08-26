@@ -22,7 +22,7 @@ Router.route 'account',
   path: '/me/account'
   title: 'My Account'
 
-LocationController = RouteController.extend(title: "Lacation Title")
+LocationController = RouteController.extend(title: "Location Title")
 Router.route 'locations', controller: LocationController
 ```
 

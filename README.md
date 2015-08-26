@@ -2,6 +2,11 @@ Reactive page title for meteor within iron-router
 ========
 Change `document.title` on the fly within [iron-router](https://atmospherejs.com/iron/router)
 
+This package supports `title` option defined in list below, ordered by prioritization:
+ - `Router.route()` [*overrides all*]
+ - `RouteController.extend()`
+ - `Router.configure()` [*might be overridden by any above*]
+
 Install:
 ========
 ```shell

@@ -20,9 +20,9 @@ class IronRouterTitle extends IronRouterHelper
 
   getTitle: ->
     @setTitle switch
-      when _.has @currentRoute.route.options, 'title' then @currentRoute.route.options.title
-      when @currentController and _.has @currentController::, 'title' then @currentController::['title']
-      when _.has @router.options, 'title' then @router.options.title
+      when @currentRoute?.route?.options and _.has @currentRoute.route.options, 'title' then @currentRoute.route.options.title
+      when @currentController?.prototype and _.has @currentController::, 'title' then @currentController::['title']
+      when @router?.options and _.has @router.options, 'title' then @router.options.title
       else false
 
 Meteor.startup -> new IronRouterTitle Router

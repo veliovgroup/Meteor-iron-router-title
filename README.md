@@ -13,6 +13,11 @@ Install:
 meteor add ostrio:iron-router-title
 ```
 
+Demo App:
+========
+ - [Source](https://github.com/VeliovGroup/Meteor-iron-router-title/tree/master/demo)
+ - [Live](http://iron-router-title.meteor.com/)
+
 Usage:
 ========
 Set `title` property in router's or controller's configuration:

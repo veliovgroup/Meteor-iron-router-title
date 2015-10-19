@@ -1,6 +1,9 @@
 Changelog
 ======
 
+ - [[1.0.2](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v1.0.2)] *19/10/2015*
+   - Add support for iron:router@1.0.12
+   - Add support for Meteor@1.2.x
  - [[1.0.0](https://github.com/VeliovGroup/Meteor-iron-router-title/releases/tag/v1.0.0)] *26/08/2015*
    - Add support for `RouteController`
    - Better rewritten code in CoffeeScript as a Class

@@ -6,11 +6,13 @@ secondPageController = RouteController.extend
   title: "Second Page Title"
   template: 'secondPage'
   path: '/secondPage'
+  data: -> rand: Random.id()
 
 Router.map ->
   @route 'index',
     template: 'index'
     path: '/'
+    data: -> rand: Random.id()
 
   @route 'secondPage', controller: secondPageController
 
@@ -18,8 +20,6 @@ Router.map ->
     template: 'thirdPage'
     path: '/thirdPage/:something'
     title: -> "Third Page Title > #{@params.something}"
-    data: -> param: @params.something
-
-if Meteor.isClient
-  Template._layout.helpers
-    rand: -> Math.floor(Random.fraction() * 10) * 5
+    data: -> 
+      param: @params.something
+      rand: Random.id()

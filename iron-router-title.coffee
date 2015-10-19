@@ -11,8 +11,7 @@ class IronRouterTitle extends IronRouterHelper
         @curValue = newValue
 
     self = @
-    @router.onAfterAction ->
-      self.getTitle()
+    @router.onAfterAction -> self.getTitle()
 
   setTitle: (title) ->
     title = title.apply(@currentRoute) if _.isFunction title

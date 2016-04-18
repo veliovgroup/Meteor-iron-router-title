@@ -1,7 +1,10 @@
 class IronRouterTitle extends IronRouterHelper
   constructor: (@router) -> 
     super @router
-    @title ?= new ReactiveVar null
+    self       = @
+    @default   = document.title or null
+    @title    ?= new ReactiveVar @default
+    
     @title.set = (newValue) ->
       oldValue = @curValue
       if _.isEqual(oldValue, newValue)
@@ -10,7 +13,6 @@ class IronRouterTitle extends IronRouterHelper
         document.title = newValue
         @curValue = newValue
 
-    self = @
     @router.onAfterAction -> self.getTitle()
 
   setTitle: (title) ->
@@ -19,9 +21,12 @@ class IronRouterTitle extends IronRouterHelper
 
   getTitle: ->
     @setTitle switch
-      when @currentRoute?.route?.options and _.has @currentRoute.route.options, 'title' then @currentRoute.route.options.title
+      when @currentRoute?.route?.options?.title then @currentRoute.route.options.title
+      when @currentRoute?.prototype and _.has @currentRoute::, 'title' then @currentRoute::['title']
+      when @currentRoute?.title then @currentRoute.title
       when @currentController?.prototype and _.has @currentController::, 'title' then @currentController::['title']
-      when @router?.options and _.has @router.options, 'title' then @router.options.title
-      else false
+      when @currentController?.title then @currentController.title
+      when @router?.options?.title then @router.options.title
+      else @default
 
 Meteor.startup -> new IronRouterTitle Router
